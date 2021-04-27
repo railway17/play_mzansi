@@ -16,11 +16,4 @@ A fully RESTful server implementation for CodeIgniter using JWT for Authenticati
 
 	Authentication: Bearer "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJ1c2VybmFtZSI6ImRvZGk"
 
-## Refference
-
-This project Using REST by Phil Sturgeon and Firebase/PHP-JWT.
-For more information :
-## REST
-https://github.com/chriskacerguis/codeigniter-restserver
-## JWT
-https://github.com/firebase/php-jwt
+Please use this repo after creating `uploads` directory in the root
