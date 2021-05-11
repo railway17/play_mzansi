@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use \Firebase\JWT\JWT;
 
 class Register extends CI_Controller {
 
@@ -28,6 +29,7 @@ class Register extends CI_Controller {
 		);
 		$val = $this->User->get_user($q)->row(); //Model to get single data row from database base on username
 		if($this->User->get_user($q)->num_rows() == 0) {
+				$kunci = $this->config->item('thekey');
 				$userId = $this->User->insert($data);
 				$token['id'] = $userId;  //From here
 				$token['username'] = $u;
@@ -37,10 +39,11 @@ class Register extends CI_Controller {
 				$output['token'] = JWT::encode($token,$kunci ); //This is the output token
 				$output['statusCode'] = 200;
 				$this->session->set_userdata('userId', $userId);
-				echo json_encode($output);
+				// echo json_encode($output);
 
 				$response = array(
 					'statusCode'=> 200,
+					'token'=> $output['token'],
 					'userId'=>$userId,
 					'message'=>'Successfully registered!'
 				);
